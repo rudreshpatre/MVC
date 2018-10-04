@@ -1,1 +1,7 @@
 *.vs
+bin/
+obj/
+Debug/
+*.pdb
+*.csprojResolveAssemblyReference.cache
+*.force
