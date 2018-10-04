@@ -5,3 +5,4 @@ Debug/
 *.pdb
 *.csprojResolveAssemblyReference.cache
 *.force
+*.cache
