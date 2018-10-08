@@ -18,5 +18,16 @@ namespace Vidly.Controllers
             };
             return View(model);
         }
+
+        public ActionResult Edit(int id)
+        {
+            return Content("id=" + id);
+        }
+
+        public ActionResult ByReleaseDate(int year,int month)
+        {
+            return Content(year+"/"+month);
+        }
+
     }
 }
