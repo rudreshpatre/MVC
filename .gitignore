@@ -6,4 +6,5 @@ Debug/
 *.csprojResolveAssemblyReference.cache
 *.force
 *.cache
+*.user
 
