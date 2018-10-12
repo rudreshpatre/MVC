@@ -11,6 +11,7 @@ namespace Vidly.Controllers
     public class MoviesController : Controller
     {
         // GET: Movies/Random
+
         public ActionResult Random()
         {
             var movie = new Movie()
@@ -42,6 +43,22 @@ namespace Vidly.Controllers
         {
             return Content(year+"/"+month);
         }
+
+        public ActionResult Index()
+        {
+            List<Movie> movies = new List<Movie>()
+            {
+                new Movie{Id =1,Name="Shawshank Redemption" },
+                new Movie{Id=2,Name ="Kal Ho Na Hos" }
+            };
+
+            MoviesViewModel model = new MoviesViewModel()
+            {
+                Movies = movies
+            };
+            
+            return View(model);
+        } 
 
     }
 }
