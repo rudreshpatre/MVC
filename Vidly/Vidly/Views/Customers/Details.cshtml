@@ -1,0 +1,19 @@
+﻿@model Vidly.ViewModels.CustomerDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+@{
+    if (Model.CustomerDetials == null)
+    {
+        <p>No details for this Customer.</p>
+    }
+    else
+    {
+
+        <p>@Model.CustomerDetials.Name is a @Model.CustomerDetials.Sex of @Model.CustomerDetials.Age years.</p>
+    }
+}
+
