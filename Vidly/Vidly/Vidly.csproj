@@ -206,10 +206,39 @@
     <Compile Include="Migrations\201810151759461_InitialModel.Designer.cs">
       <DependentUpon>201810151759461_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810161711420_IsSubscribedToNewsletter.cs" />
+    <Compile Include="Migrations\201810161711420_IsSubscribedToNewsletter.Designer.cs">
+      <DependentUpon>201810161711420_IsSubscribedToNewsletter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810161729230_AddMembershipType.cs" />
+    <Compile Include="Migrations\201810161729230_AddMembershipType.Designer.cs">
+      <DependentUpon>201810161729230_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810161735090_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\201810161735090_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>201810161735090_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810161759276_ApplyAnnotationToCustomerName.cs" />
+    <Compile Include="Migrations\201810161759276_ApplyAnnotationToCustomerName.Designer.cs">
+      <DependentUpon>201810161759276_ApplyAnnotationToCustomerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810161917122_AddedMembershipTypeName.cs" />
+    <Compile Include="Migrations\201810161917122_AddedMembershipTypeName.Designer.cs">
+      <DependentUpon>201810161917122_AddedMembershipTypeName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810161919156_PopulateMembershipTypeName.cs" />
+    <Compile Include="Migrations\201810161919156_PopulateMembershipTypeName.Designer.cs">
+      <DependentUpon>201810161919156_PopulateMembershipTypeName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810161934553_AddedBirthDateToCustomer.cs" />
+    <Compile Include="Migrations\201810161934553_AddedBirthDateToCustomer.Designer.cs">
+      <DependentUpon>201810161934553_AddedBirthDateToCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerDetails.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CustomersViewModel.cs" />
@@ -281,6 +310,27 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201810151759461_InitialModel.resx">
       <DependentUpon>201810151759461_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810161711420_IsSubscribedToNewsletter.resx">
+      <DependentUpon>201810161711420_IsSubscribedToNewsletter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810161729230_AddMembershipType.resx">
+      <DependentUpon>201810161729230_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810161735090_PopulateMembershipTypes.resx">
+      <DependentUpon>201810161735090_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810161759276_ApplyAnnotationToCustomerName.resx">
+      <DependentUpon>201810161759276_ApplyAnnotationToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810161917122_AddedMembershipTypeName.resx">
+      <DependentUpon>201810161917122_AddedMembershipTypeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810161919156_PopulateMembershipTypeName.resx">
+      <DependentUpon>201810161919156_PopulateMembershipTypeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810161934553_AddedBirthDateToCustomer.resx">
+      <DependentUpon>201810161934553_AddedBirthDateToCustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
