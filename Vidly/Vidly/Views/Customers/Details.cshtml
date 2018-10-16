@@ -7,12 +7,19 @@
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
-            <th>Customer</th>
+            <th>Name</th>
+            <th>Birth Date</th>
         </tr>
     </thead>
     <tbody>
-        <td>
-            @Model.Name
-        </td>
+    <td>
+        @Model.Name
+    </td>
+    <td>
+        @if (Model.BirthDate != null)
+        {
+            @Model.BirthDate
+        }
+    </td>
     </tbody>
 </table>
