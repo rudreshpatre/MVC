@@ -6,19 +6,30 @@
 
 <h2>Customers</h2>
 
-@{ 
+@{
     if (@Model.Customers.Count > 0)
     {
-        <ul>
-            @foreach (var customer in Model.Customers)
-            {
-                <li>@Html.ActionLink(@customer.Name, "Details",new {id = customer.Id})</li>
-            }
-        </ul>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Customer</th>
+                    <th>Discount Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var customer in Model.Customers)
+                {
+                    <tr>
+                        <td>@Html.ActionLink(@customer.Name, "Details", new { id = customer.Id })</td>
+                        <td>@customer.MembershipType.DiscountRate%</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     }
     else
     {
-        <text>No Customers Found.</text>
+        <p>We don't have any customers yet.</p>
     }
 
 }
