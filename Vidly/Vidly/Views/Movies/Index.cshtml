@@ -9,16 +9,27 @@
 @{
     if (@Model.Movies.Count > 0)
     {
-        <ul>
-        @foreach (var movie in Model.Movies)
-        {
-            <li>@movie.Name</li>
-        }
-        </ul>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Movie</th>
+                    <th>Genre</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var movie in Model.Movies)
+                {
+                    <tr>
+                        <td>@Html.ActionLink(@movie.Name,"Details",new { id = movie.Id})</td>
+                        <td>@movie.Genre.Name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     }
     else
     {
         <text>No Movies Found.</text>
     }
- }
+}
 

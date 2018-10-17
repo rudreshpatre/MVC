@@ -1,0 +1,37 @@
+﻿@model Vidly.ViewModels.MovieDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+@if (Model.MovieDetails != null)
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Genre</th>
+                <th>Release Date</th>
+                <th>Date Added</th>
+                <th>Number in stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.MovieDetails.Name</td>
+                <td>@Model.MovieDetails.Genre.Name</td>
+                <td>@Model.MovieDetails.ReleaseDate.ToShortDateString()</td>
+                <td>@Model.MovieDetails.DateAdded.Date.ToShortDateString()</td>
+                <td>@Model.MovieDetails.NumberInStock</td>
+            </tr>
+        </tbody>
+    </table>
+}
+else
+{
+   <p>No Details found.</p>
+}
+
+

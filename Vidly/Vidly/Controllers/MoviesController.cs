@@ -5,13 +5,19 @@ using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
+using System.Data.Entity;
 
 namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
+        private ApplicationDbContext _context;
         // GET: Movies/Random
 
+        public MoviesController()
+        {
+            _context = new ApplicationDbContext();
+        }
         public ActionResult Random()
         {
             var movie = new Movie()
@@ -46,19 +52,22 @@ namespace Vidly.Controllers
 
         public ActionResult Index()
         {
-            List<Movie> movies = new List<Movie>()
-            {
-                new Movie{Id =1,Name="Shawshank Redemption" },
-                new Movie{Id=2,Name ="Kal Ho Na Hos" }
-            };
-
             MoviesViewModel model = new MoviesViewModel()
             {
-                Movies = movies
-            };
-            
+                Movies = _context.Movies.Include(m=>m.Genre).ToList()
+            };            
             return View(model);
-        } 
+        }
+
+        [Route("Movies/Details/{id}")]
+        public ActionResult Details(int id)
+        {
+            var model = new MovieDetailsViewModel
+            {
+                MovieDetails = _context.Movies.Include(m=>m.Genre).Where(m=>m.Id == id).Select(m=>m).FirstOrDefault()
+            };
+            return View(model);
+        }
 
     }
 }
