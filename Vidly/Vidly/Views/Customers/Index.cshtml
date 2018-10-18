@@ -5,7 +5,8 @@
 }
 
 <h2>Customers</h2>
-
+@Html.ActionLink("Add New Customer", "CustomerForm",null, new { @class = "btn btn-primary" })
+<br /><br />
 @{
     if (@Model.Customers.Count > 0)
     {
@@ -32,6 +33,5 @@
         <p>We don't have any customers yet.</p>
     }
 
-    @Html.ActionLink("Add New Customer", "CustomerForm")
 }
 

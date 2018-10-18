@@ -238,6 +238,10 @@
     <Compile Include="Migrations\201810171624144_AddMovies.Designer.cs">
       <DependentUpon>201810171624144_AddMovies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810181611177_AddNewMovieProperty.cs" />
+    <Compile Include="Migrations\201810181611177_AddNewMovieProperty.Designer.cs">
+      <DependentUpon>201810181611177_AddNewMovieProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerDetails.cs" />
@@ -249,6 +253,7 @@
     <Compile Include="ViewModels\CustomersViewModel.cs" />
     <Compile Include="ViewModels\CustomerDetailsViewModel.cs" />
     <Compile Include="ViewModels\MovieDetailsViewModel.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
     <Compile Include="ViewModels\MoviesViewModel.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
@@ -299,6 +304,7 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -343,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810171624144_AddMovies.resx">
       <DependentUpon>201810171624144_AddMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810181611177_AddNewMovieProperty.resx">
+      <DependentUpon>201810181611177_AddNewMovieProperty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
