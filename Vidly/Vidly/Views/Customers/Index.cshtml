@@ -20,7 +20,7 @@
                 @foreach (var customer in Model.Customers)
                 {
                     <tr>
-                        <td>@Html.ActionLink(@customer.Name, "Details", new { id = customer.Id })</td>
+                        <td>@Html.ActionLink(@customer.Name, "Edit", new { id = customer.Id })</td>
                         <td>@customer.MembershipType.Name</td>
                     </tr>
                 }
@@ -32,6 +32,6 @@
         <p>We don't have any customers yet.</p>
     }
 
-    @Html.ActionLink("Add New Customer","New")
+    @Html.ActionLink("Add New Customer", "CustomerForm")
 }
 
