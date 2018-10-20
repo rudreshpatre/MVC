@@ -243,6 +243,7 @@
       <DependentUpon>201810181611177_AddNewMovieProperty.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\CheckIfEighteen.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerDetails.cs" />
     <Compile Include="Models\GenreType.cs" />
