@@ -11,44 +11,12 @@ namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
-        private ApplicationDbContext _context;
-        // GET: Movies/Random
+        private ApplicationDbContext _context;  
 
         public MoviesController()
         {
             _context = new ApplicationDbContext();
-        }
-        public ActionResult Random()
-        {
-            var movie = new Movie()
-            {
-                Name = "Shrek!"
-            };
-
-            var customers = new List<Customer>()
-            {
-                new Customer{ Id = 1,Name = "Rudresh" },
-                new Customer{ Id =2,Name="Arun"}          
-            };
-
-            var randomMoviesViewModel = new RandomMovieViewModel()
-            {
-                Movie = movie,
-                Customers = customers
-            }; 
-            return View(randomMoviesViewModel);
-        }
-
-        [Route("movies/Edit/{id}/{name}")]
-        public ActionResult Edit(int id,string name)
-        {
-            return Content($"id={id} name={name}");
-        }
-
-        public ActionResult ByReleaseDate(int year,int month)
-        {
-            return Content(year+"/"+month);
-        }
+        }       
 
         public ActionResult Index()
         {
@@ -69,5 +37,50 @@ namespace Vidly.Controllers
             return View(model);
         }
 
+        public ActionResult MovieForm()
+        {
+            var model = new MovieFormViewModel
+            {
+                GenreTypes = _context.GenreTypes.ToList()                
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Movie movie)
+        {
+            
+            if (movie.Id == 0)
+            {
+                _context.Movies.Add(movie);
+            }
+            else
+            {
+                var mov = _context.Movies.Where(m => m.Id == movie.Id).Select(m => m).FirstOrDefault();
+                mov.Name = movie.Name;
+                mov.ReleaseDate = movie.ReleaseDate;
+                mov.DateAdded = movie.DateAdded;
+                mov.GenreTypeId = movie.GenreTypeId;
+                mov.NumberInStock = movie.NumberInStock;                
+            }
+            
+            _context.SaveChanges();
+            return RedirectToAction("Index","Movies");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var movie = _context.Movies.Where(m => m.Id == id).Select(m => m).FirstOrDefault();
+            if (movie == null)
+            {
+                return new HttpNotFoundResult();
+            }
+            var model = new MovieFormViewModel
+            {
+                GenreTypes = _context.GenreTypes.ToList(),
+                Movie =movie
+            };
+            return View("MovieForm", model);
+        }
     }
 }

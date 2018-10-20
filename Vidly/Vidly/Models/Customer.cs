@@ -21,7 +21,11 @@ namespace Vidly.Models
         [Display(Name= "Membership Type")]
         public int MembershipTypeId { get; set; }
 
+        [CheckIfEighteen]
         [Display(Name ="Date of Birth")]
         public DateTime? BirthDate { get; set; }
+
+        public static readonly byte Unknown = 0;
+        public static readonly byte PayAsYouGo = 1;
     }
 }
