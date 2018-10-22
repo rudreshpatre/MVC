@@ -8,31 +8,36 @@
 
 @using (Html.BeginForm("Save", "Movies"))
 {
+    @Html.ValidationSummary(true,"Please fix below errors.")
     <div class="form-group">
-        @Html.LabelFor(c => c.Movie.Name)
-        @Html.TextBoxFor(c => c.Movie.Name, new { @class = "form-control" })
+        @Html.LabelFor(c => c.Name)
+        @Html.TextBoxFor(c => c.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c=>c.Name)
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(c => c.Movie.Genre)
-        @Html.DropDownListFor(c => c.Movie.GenreTypeId, new SelectList(Model.GenreTypes, "Id", "Name"), "Select Genre type", new { @class = "form-control" })
+        @Html.LabelFor(c => c.GenreTypeId)
+        @Html.DropDownListFor(c => c.GenreTypeId, new SelectList(Model.GenreTypes, "Id", "Name"), "Select Genre type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.GenreTypeId)
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(c => c.Movie.ReleaseDate)
-        @Html.TextBoxFor(c => c.Movie.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })
-    </div>
+        @Html.LabelFor(c => c.ReleaseDate)
+        @Html.TextBoxFor(c => c.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.ReleaseDate)
+    </div>   
 
     <div class="form-group">
-        @Html.LabelFor(c => c.Movie.DateAdded)
-        @Html.TextBoxFor(c => c.Movie.DateAdded, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.LabelFor(c => c.NumberInStock)
+        @Html.TextBoxFor(c => c.NumberInStock, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.NumberInStock)
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(c => c.Movie.NumberInStock)
-        @Html.TextBoxFor(c => c.Movie.NumberInStock, new { @class = "form-control" })
-    </div>
-    @Html.HiddenFor(c => c.Movie.Id)
+    @Html.HiddenFor(c => c.Id)
+    @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Save</button>
 }
 
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval");
+}

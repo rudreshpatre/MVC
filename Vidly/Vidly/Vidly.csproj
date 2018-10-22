@@ -242,6 +242,10 @@
     <Compile Include="Migrations\201810181611177_AddNewMovieProperty.Designer.cs">
       <DependentUpon>201810181611177_AddNewMovieProperty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810200946360_AddDataAnnotationToMovie.cs" />
+    <Compile Include="Migrations\201810200946360_AddDataAnnotationToMovie.Designer.cs">
+      <DependentUpon>201810200946360_AddDataAnnotationToMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CheckIfEighteen.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -353,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810181611177_AddNewMovieProperty.resx">
       <DependentUpon>201810181611177_AddNewMovieProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810200946360_AddDataAnnotationToMovie.resx">
+      <DependentUpon>201810200946360_AddDataAnnotationToMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
