@@ -5,6 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Vidly.Models;
+using Vidly.Dtos;
+using System.Data.Entity;
 
 namespace Vidly.Controllers.API
 {
@@ -18,9 +20,24 @@ namespace Vidly.Controllers.API
         }
 
         //Get Movies api/movies
-        public IEnumerable<Movie> GetMovies()
+        public IEnumerable<MovieDto> GetMovies()
         {
-            return _context.Movies.ToList();
+            //we use include to initialise navigation properties.
+            var moviesInDb = _context.Movies.Include(m=>m.Genre).ToList();
+            var movies = new List<MovieDto>();
+            // manual mapping instead of using automapper like in case of customers.
+            foreach(var movieinDB in moviesInDb)
+            {
+                var movie = new MovieDto();
+                movie.Id = movieinDB.Id;
+                movie.Name = movieinDB.Name;
+                movie.GenreType.Id = movieinDB.Genre.Id;
+                movie.GenreType.Name =movieinDB.Genre.Name;
+                movie.ReleaseDate = movieinDB.ReleaseDate;
+                movie.NumberInStock = movieinDB.NumberInStock;
+                movies.Add(movie);
+            }
+            return movies;
         }
 
         //Get Movie api/movies/1
