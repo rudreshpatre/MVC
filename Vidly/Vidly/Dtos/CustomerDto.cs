@@ -19,6 +19,8 @@ namespace Vidly.Dtos
        
         public int MembershipTypeId { get; set; }
 
+        public MembershipTypeDto MembershipType { get; set; }
+
         //[CheckIfEighteen]
         public DateTime? BirthDate { get; set; }       
     }
