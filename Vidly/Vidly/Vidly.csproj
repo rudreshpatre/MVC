@@ -273,6 +273,10 @@
     <Compile Include="Migrations\201810200946360_AddDataAnnotationToMovie.Designer.cs">
       <DependentUpon>201810200946360_AddDataAnnotationToMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811021543030_SeedUsers.cs" />
+    <Compile Include="Migrations\201811021543030_SeedUsers.Designer.cs">
+      <DependentUpon>201811021543030_SeedUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CheckIfEighteen.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -571,6 +575,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810200946360_AddDataAnnotationToMovie.resx">
       <DependentUpon>201810200946360_AddDataAnnotationToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811021543030_SeedUsers.resx">
+      <DependentUpon>201811021543030_SeedUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
