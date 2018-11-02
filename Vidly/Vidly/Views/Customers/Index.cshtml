@@ -10,11 +10,12 @@
 @{
     if (@Model.Customers.Count > 0)
     {
-        <table class="table table-bordered table-hover">
+        <table id="customers" class="table table-bordered table-hover">
             <thead>
                 <tr>
                     <th>Customer</th>
                     <th>MembershipType Name</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,6 +24,9 @@
                     <tr>
                         <td>@Html.ActionLink(@customer.Name, "Edit", new { id = customer.Id })</td>
                         <td>@customer.MembershipType.Name</td>
+                        <td>
+                            <button data-customer-id="@customer.Id" class="btn-link js-delete">Delete</button>
+                        </td>
                     </tr>
                 }
             </tbody>
@@ -34,4 +38,27 @@
     }
 
 }
+@section scripts
+    {
+        <script>
+            $(document).ready(function () {
+                $('#customers').DataTable();
+
+                $('#customers').on('click','.js-delete', function () {
+                    var button = $(this);
+                    bootbox.confirm("Are you sure you want to delete the Customer?", function(result){
+                        if (result) {
+                            $.ajax({
+                                url: "/api/customers/" + button.attr("data-customer-id"),
+                                method: "Delete",
+                                success: function () {
+                                    button.parents("tr").remove();
+                                }
+                            });
+                        }
+                    });                    
+                });
+            });
+        </script>
+    }
 
