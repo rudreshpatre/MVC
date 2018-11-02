@@ -34,3 +34,10 @@ textarea {
 .validation-summary-errors span{
     color:red;
 }
+
+.not-active {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: white;
+}
