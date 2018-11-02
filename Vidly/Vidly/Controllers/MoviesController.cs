@@ -20,11 +20,7 @@ namespace Vidly.Controllers
 
         public ActionResult Index()
         {
-            MoviesViewModel model = new MoviesViewModel()
-            {
-                Movies = _context.Movies.Include(m => m.Genre).ToList()
-            };
-            return View(model);
+            return View();
         }
 
         [Route("Movies/Details/{id}")]
@@ -54,7 +50,7 @@ namespace Vidly.Controllers
             {
                 var model = new MovieFormViewModel(movie)
                 {
-                   GenreTypes = _context.GenreTypes.ToList()
+                    GenreTypes = _context.GenreTypes.ToList()
                 };
                 return View("MovieForm", model);
             }
@@ -67,7 +63,7 @@ namespace Vidly.Controllers
             {
                 var mov = _context.Movies.Where(m => m.Id == movie.Id).Select(m => m).FirstOrDefault();
                 mov.Name = movie.Name;
-                mov.ReleaseDate = movie.ReleaseDate;                
+                mov.ReleaseDate = movie.ReleaseDate;
                 mov.GenreTypeId = movie.GenreTypeId;
                 mov.NumberInStock = movie.NumberInStock;
             }
@@ -85,7 +81,7 @@ namespace Vidly.Controllers
             }
             var model = new MovieFormViewModel(movie)
             {
-                GenreTypes = _context.GenreTypes.ToList()                
+                GenreTypes = _context.GenreTypes.ToList()
             };
             return View("MovieForm", model);
         }
