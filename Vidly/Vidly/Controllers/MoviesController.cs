@@ -20,7 +20,9 @@ namespace Vidly.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            if(User.IsInRole(RoleNames.CanManageMovies))
+                return View("List");
+            return View("ReadOnlyList");
         }
 
         [Route("Movies/Details/{id}")]
@@ -33,6 +35,7 @@ namespace Vidly.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = RoleNames.CanManageMovies)]
         public ActionResult MovieForm()
         {
             var model = new MovieFormViewModel
@@ -72,6 +75,7 @@ namespace Vidly.Controllers
             return RedirectToAction("Index", "Movies");
         }
 
+        [Authorize(Roles = RoleNames.CanManageMovies)]
         public ActionResult Edit(int id)
         {
             var movie = _context.Movies.Where(m => m.Id == id).Select(m => m).FirstOrDefault();
