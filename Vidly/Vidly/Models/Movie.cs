@@ -29,5 +29,6 @@ namespace Vidly.Models
         [Range(1,20,ErrorMessage ="You can only enter values between 1 and 20.")]
         [Display(Name = "Number In Stock")]
         public int NumberInStock { get; set; }
+        public int NumberAvailable { get; set; }
     }
 }
