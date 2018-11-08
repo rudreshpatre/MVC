@@ -20,10 +20,14 @@ namespace Vidly.Controllers.API
         }
 
         //Get Movies api/movies
-        public IEnumerable<MovieDto> GetMovies()
+        public IEnumerable<MovieDto> GetMovies(string query = null)
         {
             //we use include to initialise navigation properties.
-            var moviesInDb = _context.Movies.Include(m=>m.Genre).ToList();
+            var moviesInDb = _context.Movies.Include(m=>m.Genre).Where(m=>m.NumberAvailable>0);
+
+            if (!String.IsNullOrWhiteSpace(query))
+                moviesInDb = moviesInDb.Where(c => c.Name.Contains(query));
+
             var movies = new List<MovieDto>();
             // manual mapping instead of using automapper like in case of customers.
             foreach(var movieinDB in moviesInDb)

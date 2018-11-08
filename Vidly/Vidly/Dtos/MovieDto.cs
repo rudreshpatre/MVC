@@ -24,6 +24,8 @@ namespace Vidly.Dtos
                
         public int NumberInStock { get; set; }
 
+        public int NumberAvailable { get; set; }
+
         public MovieDto()
         {
             GenreType = new GenreTypeDto();
